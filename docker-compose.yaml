@@ -1,0 +1,13 @@
+version: '3'
+services:
+  myapp:
+    image: openjdk:17
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myapp-container
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/app-0.0.1-SNAPSHOT.jar:/demo.jar
+    command: ["java", "-jar", "/demo.jar"]
